@@ -2,10 +2,6 @@ import { Slot } from "@radix-ui/react-slot";
 import { cva } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
-/**
- * Button component variants using class-variance-authority
- * Supports multiple variants and sizes following shadcn/ui patterns
- */
 const buttonVariants = cva(
   "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
   {
@@ -21,10 +17,6 @@ const buttonVariants = cva(
           "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
-        success:
-          "bg-green-600 text-white shadow hover:bg-green-700 dark:bg-green-700 dark:hover:bg-green-800",
-        warning:
-          "bg-yellow-500 text-white shadow hover:bg-yellow-600 dark:bg-yellow-600 dark:hover:bg-yellow-700",
       },
       size: {
         default: "h-9 px-4 py-2",
@@ -40,15 +32,6 @@ const buttonVariants = cva(
   }
 );
 
-/**
- * Button component with different variants
- * @param {Object} props - Component props
- * @param {string} props.variant - Button variant (default, destructive, outline, secondary, ghost, link, success, warning)
- * @param {string} props.size - Button size (default, sm, lg, icon)
- * @param {boolean} props.asChild - Render as child element using Radix Slot
- * @param {string} props.className - Additional CSS classes
- * @returns {JSX.Element} - Button component
- */
 const Button = ({ className, variant, size, asChild = false, ...props }) => {
   const Comp = asChild ? Slot : "button";
   return (
@@ -60,4 +43,3 @@ const Button = ({ className, variant, size, asChild = false, ...props }) => {
 };
 
 export { Button, buttonVariants };
-export default Button;
